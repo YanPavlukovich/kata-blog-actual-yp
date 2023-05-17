@@ -21,11 +21,14 @@ export const Like = (props: LikeProps) => {
 
   const [liked, setLiked] = useState<boolean>(false);
   const [count, setCount] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
   const [add, remove] = useFavorited(slug);
 
   useEffect(() => {
     setLiked(favorited);
     setCount(favoritesCount);
+    setIsLoading(false);
   }, [favorited, favoritesCount]);
 
   const likeHandler = () => {
@@ -54,7 +57,7 @@ export const Like = (props: LikeProps) => {
         ) : (
           <FavoriteBorderIcon color="disabled" fontSize="small" />
         )}
-        <span className="span">{count}</span>
+        {!isLoading && <span className="span">{count}</span>}{" "}
       </IconButton>
     </LikeStyle>
   );
