@@ -103,11 +103,12 @@ export const ProfilePage = () => {
         errors={errors}
       />
       {showSuccess && (
-        <ProfilePageStyle className="successMessage">
-          <Alert severity="success">
+        <ProfilePageStyle>
+          <Alert className="successMessage" severity="success">
             <strong>Success</strong> - Data updated successfully
           </Alert>
           <Button
+            className="buttonSubmitted"
             onClick={() => history("/articles")}
             variant="contained"
             color="primary"
