@@ -44,6 +44,7 @@ export const ArticlePage = () => {
           />
           <>
             <ReactMarkdown
+              className="content"
               children={article.body}
               remarkPlugins={[remarkGfm]}
             />
