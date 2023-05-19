@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -10,6 +10,7 @@ import { deleteArticle } from "../../API/articles/articles";
 import { useAppSelector } from "../../store/store-hooks";
 import { selectToken, selectUserData } from "../../store/slices/user-slice";
 import { ArticlePageStyle } from "./article-page.style";
+import { CircularProgress } from "@mui/material";
 
 export const ArticlePage = () => {
   const { id } = useParams();
@@ -18,8 +19,22 @@ export const ArticlePage = () => {
   const userData = useAppSelector(selectUserData);
 
   const [redirected, setRedirected] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(true);
+
   const isMyPost = useMemo(() => {
     return userData.username === article?.author.username;
+  }, [article]);
+
+  useEffect(() => {
+    if (article) {
+      setIsLoading(false);
+    } else {
+      const timerID = setTimeout(() => {
+        setIsLoading(false);
+      }, 3000);
+
+      return () => clearTimeout(timerID);
+    }
   }, [article]);
 
   const deleteHandler = async () => {
@@ -31,6 +46,10 @@ export const ArticlePage = () => {
       }
     }
   };
+
+  if (isLoading) {
+    return <CircularProgress />;
+  }
 
   if (article) {
     return (
