@@ -17,12 +17,14 @@ export const EditArticlePage = () => {
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
 
   const defaultValues = useMemo(() => {
-    return {
-      articleTitle: article?.title,
-      description: article?.description,
-      text: article?.body,
-      tags: article?.tagList.map((tag) => ({ name: tag })),
-    };
+    return (
+      article && {
+        articleTitle: article?.title,
+        description: article?.description,
+        text: article?.body,
+        tags: article?.tagList.map((tag) => ({ name: tag })),
+      }
+    );
   }, [article]);
 
   const onSubmit = async (data: FormValues) => {
