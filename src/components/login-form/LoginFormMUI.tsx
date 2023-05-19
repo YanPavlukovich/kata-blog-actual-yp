@@ -16,6 +16,7 @@ export type FieldType = {
   label: string;
   name: string;
   value?: string;
+  type?: "textarea" | "text" | "password";
 };
 
 type Props<T extends Maybe<AnyObject>> = {
@@ -69,7 +70,7 @@ export const LoginFormMUI = <T extends FieldValues>(props: Props<T>) => {
     }
   }, [propErrors]);
 
-  const fields = fieldsData.map(({ name, label }, i) => {
+  const fields = fieldsData.map(({ name, label, type }, i) => {
     const error = (errors[name]?.message || "") as string;
 
     return (
@@ -78,6 +79,7 @@ export const LoginFormMUI = <T extends FieldValues>(props: Props<T>) => {
         name={name}
         register={register}
         label={label}
+        type={type}
         error={error}
       />
     );
