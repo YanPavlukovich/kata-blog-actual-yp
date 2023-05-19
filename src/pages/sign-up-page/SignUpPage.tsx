@@ -85,7 +85,7 @@ export const SignUpPage = () => {
         needDataAgree
         helpText={
           <>
-            Already have an account? <Link to={"/sign-in-page"}>Sign In</Link>.
+            Already have an account? <Link to={"/sign-in"}>Sign In</Link>.
           </>
         }
         errors={errors}

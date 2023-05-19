@@ -57,7 +57,7 @@ export const SignInPage = () => {
         fieldsData={formFields}
         helpText={
           <>
-            Don’t have an account? <Link to={"/sign-up-page"}>Sign Up</Link>.
+            Don’t have an account? <Link to={"/sign-up"}>Sign Up</Link>.
           </>
         }
         errors={errors}
