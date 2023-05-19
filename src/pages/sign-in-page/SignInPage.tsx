@@ -24,6 +24,7 @@ const formFields: FieldType[] = [
   {
     label: "Password",
     name: "password",
+    type: "password",
   },
 ];
 

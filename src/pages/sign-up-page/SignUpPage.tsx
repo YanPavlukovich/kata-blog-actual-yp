@@ -45,10 +45,12 @@ const formFields: FieldType[] = [
   {
     label: "Password",
     name: "password",
+    type: "password",
   },
   {
     label: "Repeat Password",
     name: "cpassword",
+    type: "password",
   },
 ];
 
