@@ -27,9 +27,9 @@ export const CreateArticlePage = () => {
   };
 
   return (
-    <div>
+    <>
       {articleURL && <Navigate to={`/articles/${articleURL}`} />}
       <ArticleForm title={"Create new article"} submitHandler={onSubmit} />
-    </div>
+    </>
   );
 };

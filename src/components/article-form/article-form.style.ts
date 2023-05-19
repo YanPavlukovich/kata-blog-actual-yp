@@ -25,7 +25,7 @@ color: rgba(0, 0, 0, 0.75);
 margin: 0 0 0 0;
 }
 
-.fontSubmit {
+.formSubmit {
   width: 320px;
   box-sizing: border-box;
   background-color: #1890FF;

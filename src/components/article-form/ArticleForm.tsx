@@ -80,7 +80,7 @@ export const ArticleForm = (props: Props) => {
           errors={errors}
           tagError={errors?.tags?.message as string}
         />
-        <button type={"submit"} className="fontSubmit">
+        <button type={"submit"} className="formSubmit">
           Send
         </button>
       </form>
