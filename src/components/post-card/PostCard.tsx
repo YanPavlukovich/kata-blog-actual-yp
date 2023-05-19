@@ -13,6 +13,7 @@ type Props = PostType & {
 export const PostCard = (props: Props) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+
   const {
     title,
     favorited,
