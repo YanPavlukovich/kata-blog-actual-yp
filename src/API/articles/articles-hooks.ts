@@ -27,12 +27,16 @@ export const useArticlesGetter = () => {
   return posts;
 };
 
+
+
 export const useArticle = (slug: string) => {
   const [post, setPost] = useState<PostType | null>(null);
   const token = useAppSelector(selectToken);
 
   useEffect(() => {
-    getArticle(slug, token).then(({ article }) => setPost(article));
+			getArticle(slug, token)
+			.then(({ article }) => setPost(article))
+			.catch(()=> setPost(null));
   }, [slug]);
 
   return post;
