@@ -30,6 +30,7 @@ export const Input = (props: Props) => {
         error={!!error}
         helperText={errorStr}
         multiline={type === "textarea"}
+        type={type === "password" ? "password" : "text"}
         {...register(name)}
       />
     </div>
